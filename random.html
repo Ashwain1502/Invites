@@ -3,35 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puzzle Two</title>
-    <link rel="stylesheet" href="random.css">
-    <script defer src="puzzle2.js"></script>
+    <title>Code Breaker Challenge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background: url('https://img.freepik.com/free-vector/matrix-style-binary-code-digital-falling-numbers-blue-background_1017-37387.jpg?t=st=1741941274~exp=1741944874~hmac=f55e00cc688602e39751b12631e29c0fafbe9d0b26d99b07dd76adc0d507f578&w=996') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            color: white;
+            padding: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px #ff00ff;
+            text-align: center;
+            max-width: 500px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .title {
+            color: #ff0;
+            text-shadow: 3px 3px #00ffcc;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            margin: 15px 0;
+            text-align: center;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #aaa;
+            text-align: center;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            background: linear-gradient(90deg, #ff00ff, #ff8800);
+            color: white;
+            border-radius: 10px;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+        }
+        
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px #ff8800;
+        }
+
+        #message {
+            font-size: 16px;
+            color: cyan;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="title">Puzzle Two</h1>
-        <p>Guess the correct number between 1 and 10 to proceed.</p>
-        <input type="number" id="numberInput" placeholder="Enter a number" min="1" max="50">
-        <button onclick="checkNumber()">Submit</button>
+        <h1 class="title">Code Breaker Challenge</h1>
+        <p>Guess the correct number between <span style="color:yellow;">1 and 1000</span></p>
+        <input type="number" id="numberInput" placeholder="Enter number...">
+        <br>
+        <button onclick="checkNumber()">Guess</button>
         <p id="message"></p>
     </div>
-
+    
     <script>
-        const correctNumber = Math.floor(Math.random() * 10) + 1;
-        let attempts = 7;
-        
+        let correctNumber = Math.floor(Math.random() * 1000) + 1;
         function checkNumber() {
             let userGuess = parseInt(document.getElementById("numberInput").value);
+            let message = document.getElementById("message");
+            
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 1000) {
+                message.innerHTML = "❌ Enter a number between 1 and 1000.";
+                return;
+            }
+            
             if (userGuess === correctNumber) {
-                window.location.href = 'theme.html';
+                message.innerHTML = "🎉 Correct! Well done! Redirecting...";
+                setTimeout(() => {
+                    window.location.href = 'revel.html';
+                }, 2000);
+            } else if (userGuess > correctNumber) {
+                message.innerHTML = "⬇ Too high! Try again.";
             } else {
-                attempts--;
-                if (attempts > 0) {
-                    document.getElementById("message").innerText = `Wrong! ${attempts} attempts left.`;
-                } else {
-                    alert("Game Over! Redirecting to Home Page.");
-                    window.location.href = 'index.html';
-                }
+                message.innerHTML = "⬆ Too low! Try again.";
             }
         }
     </script>

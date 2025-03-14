@@ -80,16 +80,107 @@
         }
     </style>
 </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>Congratulations - Pajama Party Revealed!</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffdde1, #ff9a9e);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            width: 90%;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff4081;
+            margin-bottom: 15px;
+        }
+        .theme {
+            font-size: 1.8rem;
+            color: white;
+            background: #ff6f61;
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .rules {
+            font-size: 1.2rem;
+            text-align: left;
+            padding: 15px;
+            background: #f8f8f8;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+        .rules ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .rules li {
+            background: #ffe6e6;
+            margin: 8px 0;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        button {
+            display: inline-block;
+            background: #ff4081;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background: #d81b60;
+            transform: scale(1.08);
+        }
+    </style>
+</head>
 <body>
     <div class="container">
         <h1 class="title">🎉 Congratulations! 🎉</h1>
-        <p class="theme">The Theme is: Pajama Party! 🎭</p>
+        <p class="theme">Theme: Pyjama Party</p>
         <div class="rules">
-            <h2>Party Rules:</h2>
+            <h2>🎭 Party Rules:</h2>
             <ul>
-                <li>👚 Clothes must be of the same color</li>
-                <li>🚫 No jeans allowed</li>
-                <li>🚫 No shorts allowed</li>
+                <li>👕 Wear matching color pajamas.</li>
+                <li>🛏 No jeans, only comfy sleepwear.</li>
+                <li>🎭 Bring your fun and creativity!</li>
+                <li>🚀 Be ready for exciting games and surprises!</li>
             </ul>
         </div>
         <button onclick="window.location.href='puzzle5.html'">Next Challenge</button>
