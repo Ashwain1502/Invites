@@ -4,53 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Puzzle 5 - The Code Breaker</title>
+    <title>Code Breaker Puzzle</title>
     <style>
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f5f5f5;
-            color: #333;
+            background-color: #1a1a2e;
+            color: #e0e0e0;
             font-family: 'Arial', sans-serif;
             text-align: center;
         }
         .container {
-            background: white;
+            background: #16213e;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             animation: fadeIn 1.5s ease-in-out;
             width: 50%;
         }
         .title {
             font-size: 2rem;
-            color: #444;
+            color: #00adb5;
             font-weight: bold;
             margin-bottom: 15px;
         }
         .puzzle {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #555;
+            color: #eeeeee;
             margin: 15px 0;
         }
         .clue {
             font-size: 1.2rem;
             margin-top: 10px;
-            color: #666;
+            color: #cccccc;
         }
         input {
             margin-top: 20px;
             padding: 10px;
             font-size: 1.2rem;
             border-radius: 6px;
-            border: 1px solid #ccc;
+            border: none;
             width: 80%;
+            background: #0f3460;
+            color: #ffffff;
+            text-align: center;
         }
         button {
-            background-color: #444;
+            background-color: #00adb5;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -61,7 +64,7 @@
             transition: 0.3s;
         }
         button:hover {
-            background-color: #222;
+            background-color: #008c9e;
             transform: scale(1.05);
         }
         @keyframes fadeIn {
@@ -76,21 +79,24 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="title">🧩 Puzzle 5 - The Code Breaker 🧩</h1>
-        <p class="puzzle">Decode the secret message using the clue below:</p>
+        <h1 class="title">🔐 Code Breaker Challenge 🔐</h1>
+        <p class="puzzle">Decrypt the hidden message!</p>
         <p class="clue">Ciphertext: "fuhdwlyh whdp urfnv!"</p>
         <input type="text" id="answer" placeholder="Enter the decoded phrase...">
         <button onclick="checkAnswer()">Submit</button>
+        <p id="message"></p>
     </div>
     <script>
         function checkAnswer() {
             const userAnswer = document.getElementById('answer').value.trim().toLowerCase();
             const correctAnswer = "creative team rocks";
             if (userAnswer === correctAnswer) {
-                window.location.href = 'final.html';
+                document.getElementById('message').innerHTML = "✅ Correct! Redirecting...";
+                setTimeout(() => {
+                    window.location.href = 'next_puzzle.html';
+                }, 2000);
             } else {
-                alert('Incorrect! Try again.');
-                document.getElementById('answer').value = '';
+                document.getElementById('message').innerHTML = "❌ Incorrect! Try again.";
             }
         }
     </script>
