@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="puzzle3.js"></script>
+    <title>Puzzle Three - Unscramble the Theme</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1a1a2e;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+            animation: fadeIn 2s ease-in-out;
+            width: 50%;
+        }
+        .title {
+            font-size: 2rem;
+            color: #00ccff;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .scrambled {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: rgba(255, 69, 0, 0.8);
+            padding: 15px;
+            display: inline-block;
+            margin: 20px 0;
+            border-radius: 10px;
+            animation: float 2s infinite alternate ease-in-out;
+        }
+        input {
+            font-size: 1.5rem;
+            padding: 12px;
+            width: 80%;
+            border-radius: 8px;
+            border: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #00ccff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #0088cc;
+            transform: scale(1.05);
+        }
+        #message {
+            margin-top: 15px;
+            font-size: 1.3rem;
+            color: red;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Unscramble the Theme!</h1>
+        <div class="scrambled" id="scrambledWord">AAMJPA PRTAY</div>
+        <input type="text" id="userGuess" placeholder="Enter your answer...">
+        <button onclick="checkTheme()">Submit</button>
+        <p id="message"></p>
+    </div>
+    <script>
+        let attempts = 3;
+        const correctAnswer = "PAJAMA PARTY";
+        
+        function shuffleWord(word) {
+            return word.split('').sort(() => 0.5 - Math.random()).join(' ');
+        }
+        
+        function setShuffledWord() {
+            document.getElementById("scrambledWord").innerText = shuffleWord(correctAnswer);
+        }
+        
+        function checkTheme() {
+            let userGuess = document.getElementById("userGuess").value.toUpperCase().trim();
+            if (userGuess === correctAnswer) {
+                document.getElementById("message").innerText = "Correct! Redirecting...";
+                setTimeout(() => window.location.href = 'revel.html', 2000);
+            } else {
+                attempts--;
+                if (attempts > 0) {
+                    document.getElementById("message").innerText = `Wrong! ${attempts} attempts left.`;
+                } else {
+                    alert("Game Over! Try again from the beginning.");
+                    window.location.href = 'index.html';
+                }
+            }
+        }
+    
+        document.addEventListener("DOMContentLoaded", function() {
+            setShuffledWord();
+        });
+    </script>
+</body>
+</html>

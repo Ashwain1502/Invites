@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle One</title>
+    <link rel="stylesheet" href="puzzles.css">
+    <script defer src="puzzle1.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Puzzle One</h1>
+        <p>One button out of 20 leads to the next page. Choose wisely!</p>
+        <div class="button-grid">
+            <script>
+                for (let i = 1; i <= 20; i++) {
+                    document.write(`<button class="puzzle-btn" onclick="checkButton(${i})">${i}</button>`);
+                }
+            </script>
+        </div>
+    </div>
+
+    <script>
+        function checkButton(num) {
+            const correctButton = Math.floor(Math.random() * 20) + 1;
+            if (num === correctButton) {
+                window.location.href = 'random.html';
+            } else {
+                alert('Wrong button! Try again.');
+            }
+        }
+    </script>
+</body>
+</html>

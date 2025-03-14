@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Congratulations - Pajama Party Revealed!</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-in-out;
+            width: 50%;
+        }
+        .title {
+            font-size: 2rem;
+            color: #444;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .theme {
+            font-size: 1.75rem;
+            font-weight: bold;
+            color: #555;
+            background-color: #eaeaea;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .rules {
+            font-size: 1.2rem;
+            color: #666;
+            margin-top: 15px;
+            text-align: left;
+        }
+        .rules ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .rules li {
+            background: #f0f0f0;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 6px;
+        }
+        button {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 15px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #222;
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🎉 Congratulations! 🎉</h1>
+        <p class="theme">The Theme is: Pajama Party! 🎭</p>
+        <div class="rules">
+            <h2>Party Rules:</h2>
+            <ul>
+                <li>👚 Clothes must be of the same color</li>
+                <li>🚫 No jeans allowed</li>
+                <li>🚫 No shorts allowed</li>
+            </ul>
+        </div>
+        <button onclick="window.location.href='puzzle5.html'">Next Challenge</button>
+    </div>
+</body>
+</html>

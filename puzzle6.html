@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Puzzle 5 - The Code Breaker</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-in-out;
+            width: 50%;
+        }
+        .title {
+            font-size: 2rem;
+            color: #444;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .puzzle {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #555;
+            margin: 15px 0;
+        }
+        .clue {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #666;
+        }
+        input {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 1.2rem;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            width: 80%;
+        }
+        button {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 15px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #222;
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🧩 Puzzle 5 - The Code Breaker 🧩</h1>
+        <p class="puzzle">Decode the secret message using the clue below:</p>
+        <p class="clue">Ciphertext: "fuhdwlyh whdp urfnv!"</p>
+        <input type="text" id="answer" placeholder="Enter the decoded phrase...">
+        <button onclick="checkAnswer()">Submit</button>
+    </div>
+    <script>
+        function checkAnswer() {
+            const userAnswer = document.getElementById('answer').value.trim().toLowerCase();
+            const correctAnswer = "creative team rocks";
+            if (userAnswer === correctAnswer) {
+                window.location.href = 'final.html';
+            } else {
+                alert('Incorrect! Try again.');
+                document.getElementById('answer').value = '';
+            }
+        }
+    </script>
+</body>
+</html>
